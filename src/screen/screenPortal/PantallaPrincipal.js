@@ -1,16 +1,14 @@
 import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 
-const PantallaPrincipal = () => {
+const PantallaPrincipal = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>¡Bienvenido a Infostudia!</Text>
       <Text style={styles.subtitle}>Tu plataforma educativa favorita</Text>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => {
-          /* Agrega aquí la lógica para el botón Entrar */
-        }}>
+        onPress={() => navigation.navigate('DescripcionPortal')}>
         <Text style={styles.buttonText}>Entrar</Text>
       </TouchableOpacity>
     </View>
