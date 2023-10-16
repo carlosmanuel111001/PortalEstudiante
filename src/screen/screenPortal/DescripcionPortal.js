@@ -9,6 +9,9 @@ import {
 } from 'react-native';
 
 const DescripcionPortal = ({navigation}) => {
+  const handleNavigateToDescargas = () => {
+    navigation.navigate('Descarga');
+  };
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.header}>
@@ -17,7 +20,12 @@ const DescripcionPortal = ({navigation}) => {
             Sistema Integrado de Gestión Institucional - SIGI
           </Text>
         </View>
-        <Image source={require('../assets/menu.png')} style={styles.menuIcon} />
+        <TouchableOpacity onPress={() => navigation.navigate('Menu')}>
+          <Image
+            source={require('../assets/menu.png')}
+            style={styles.menuIcon}
+          />
+        </TouchableOpacity>
       </View>
       <View style={styles.descriptionContainer}>
         <Text style={styles.descriptionText}>
@@ -29,14 +37,16 @@ const DescripcionPortal = ({navigation}) => {
           style={styles.button}
           onPress={() => navigation.navigate('Manuales')}>
           <Image
-            source={require('../assets/menu.png')}
+            source={require('../assets/manual.png')}
             style={styles.buttonIcon}
           />
           <Text style={styles.buttonText}>Manuales</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={handleNavigateToDescargas}>
           <Image
-            source={require('../assets/menu.png')}
+            source={require('../assets/descargar-pdf.png')}
             style={styles.buttonIcon}
           />
           <Text style={styles.buttonText}>Descargas</Text>
