@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-const DescripcionPortal = () => {
+const DescripcionPortal = ({navigation}) => {
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.header}>
@@ -17,39 +17,33 @@ const DescripcionPortal = () => {
             Sistema Integrado de Gestión Institucional - SIGI
           </Text>
         </View>
-        {/* Agrega aquí la imagen de tu menú */}
-        <Image
-          source={require('../assets/menu.png')} // Reemplaza con la ruta correcta de tu imagen
-          style={styles.menuIcon}
-        />
+        <Image source={require('../assets/menu.png')} style={styles.menuIcon} />
       </View>
       <View style={styles.descriptionContainer}>
         <Text style={styles.descriptionText}>
           Descripción del Portal Estudiantil
         </Text>
-        {/* Agrega aquí la información que quieras mostrar en esta pantalla */}
       </View>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button}>
-          {/* Agrega aquí la imagen para el primer botón */}
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate('Manuales')}>
           <Image
-            source={require('../assets/menu.png')} // Reemplaza con la ruta correcta de la imagen
+            source={require('../assets/menu.png')}
             style={styles.buttonIcon}
           />
           <Text style={styles.buttonText}>Manuales</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button}>
-          {/* Agrega aquí la imagen para el segundo botón */}
           <Image
-            source={require('../assets/menu.png')} // Reemplaza con la ruta correcta de la imagen
+            source={require('../assets/menu.png')}
             style={styles.buttonIcon}
           />
           <Text style={styles.buttonText}>Descargas</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button}>
-          {/* Agrega aquí la imagen para el tercer botón */}
           <Image
-            source={require('../assets/menu.png')} // Reemplaza con la ruta correcta de la imagen
+            source={require('../assets/menu.png')}
             style={styles.buttonIcon}
           />
           <Text style={styles.buttonText}>Otro</Text>
@@ -62,17 +56,18 @@ const DescripcionPortal = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white', // Color de fondo de la pantalla
+    backgroundColor: '#F0F0F0',
     alignItems: 'center',
     justifyContent: 'center',
   },
   header: {
-    backgroundColor: '#007BFF', // Color de fondo del encabezado
+    backgroundColor: '#007BFF',
     width: '100%',
-    padding: 20,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
     flexDirection: 'row',
     alignItems: 'center',
-    elevation: 5, // Sombra para un aspecto elevado
+    elevation: 5,
   },
   headerContent: {
     flex: 1,
@@ -80,12 +75,13 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     color: 'white',
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: 'bold',
   },
   menuIcon: {
     width: 30,
     height: 30,
+    tintColor: 'white',
   },
   descriptionContainer: {
     flex: 1,
@@ -94,33 +90,36 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   descriptionText: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: 'bold',
     textAlign: 'center',
-    color: '#007BFF', // Color del texto de la descripción
+    color: '#007BFF',
   },
   buttonContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
+    flexDirection: 'row', // Botones en fila horizontal
+    justifyContent: 'center', // Alineados al centro
     alignItems: 'center',
     marginVertical: 20,
   },
   button: {
+    flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#007BFF', // Color de fondo del botón
-    borderRadius: 10,
-    paddingHorizontal: 20,
-    paddingVertical: 15,
+    backgroundColor: '#007BFF',
+    borderRadius: 20, // Botones un poco más redondeados
+    paddingHorizontal: 15, // Ajuste del espaciado
+    paddingVertical: 10, // Ajuste del espaciado
+    marginHorizontal: 10, // Espaciado horizontal uniforme
   },
   buttonIcon: {
-    width: 60,
-    height: 60,
-    marginBottom: 10,
+    width: 24,
+    height: 24,
+    marginRight: 10,
+    tintColor: 'white',
   },
   buttonText: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: 'white', // Color del texto del botón
+    color: 'white',
   },
 });
 
